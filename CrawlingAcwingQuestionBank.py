@@ -80,7 +80,7 @@ def parse_acwing_html(html_file, output_csv):
                                 problem_name = problem_span.get_text(strip=True)
                                 
                                 # 将数据加入列表
-                                results.append([lecture_title, category, problem_name])
+                                results.append(["Fundamental",lecture_title, category, problem_name])
 
     # HTML中是按时间倒序排列的（第六讲在前，第一讲在后）
     # 为了Notion打卡表好看，我们将其反转，变成第一讲在前
@@ -88,7 +88,7 @@ def parse_acwing_html(html_file, output_csv):
 
     # 写入 CSV
     print(f"正在写入 CSV 文件: {output_csv} ...")
-    header = ['第几讲', '算法类别', '题目名称']
+    header = ['课程名称','第几讲', '算法类别', '题目名称']
     
     with open(output_csv, 'w', newline='', encoding='utf-8-sig') as f:
         writer = csv.writer(f)
